@@ -6,3 +6,4 @@
 .msg.playerMessage{background:linear-gradient(145deg,#123329,#0d241e);border-color:#2b6b54;margin-left:26px}
 .msg.coachMessage .msgHead strong{color:#93c5fd}.msg.playerMessage .msgHead strong{color:#86efac}
 @media(max-width:520px){.msg.coachMessage{margin-right:10px}.msg.playerMessage{margin-left:10px}}
+.archivedToggle{width:100%;margin-top:8px;border-style:dashed;color:#8ea2b7}.archivedToggle:hover{color:#c5d3e1}
