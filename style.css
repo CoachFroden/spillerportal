@@ -49,3 +49,6 @@
 #registerPasswordLabel .passwordNext:active{transform:translateY(0)}
 
 .guardianManage{margin-top:16px;padding:17px}.guardianManageIntro{margin:-3px 0 14px;color:#91a3b8;font-size:12px;line-height:1.5}.guardianAdd{width:100%;margin-top:10px}.guardianRequestForm{margin-top:13px;padding-top:13px;border-top:1px solid var(--line)}.myGuardians{display:grid;gap:8px}.guardianRequestRow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border:1px solid #294057;border-radius:13px;background:#081522}.guardianRequestRow strong,.guardianRequestRow span{display:block}.guardianRequestRow>div>span{margin-top:3px;color:#8499ae;font-size:10px}.guardianStatus{flex:0 0 auto;border-radius:99px;padding:5px 7px;font-size:8px;font-weight:900;letter-spacing:.04em}.guardianStatus.pending{color:#fbbf24;background:#f59e0b18}.guardianStatus.approved{color:#86efac;background:#22c55e18}.guardianStatus.rejected{color:#fca5a5;background:#ef444418}@media(max-width:480px){.guardianRequestRow{align-items:flex-start;flex-direction:column}}
+
+#guardiansBtn{--tone:#8b5cf6}
+#guardianPanel{scroll-margin-top:16px}
