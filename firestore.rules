@@ -17,6 +17,7 @@ service cloud.firestore { match /databases/{database}/documents {
  match /developmentMessages/{id} {
   allow read: if isCoach() || (approvedPlayer() && resource.data.playerId == playerAccount().data.playerId);
   allow create: if isCoach() || (approvedPlayer() && request.resource.data.playerId == playerAccount().data.playerId && request.resource.data.uid == request.auth.uid && request.resource.data.senderRole == "player");
-  allow update, delete: if false;
+  allow update: if false;
+  allow delete: if isCoach() || (approvedPlayer() && resource.data.uid == request.auth.uid && resource.data.playerId == playerAccount().data.playerId);
  }
 }}
