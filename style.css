@@ -96,3 +96,16 @@
  #portalView>footer{max-width:1180px;margin:auto;padding:4px 22px 30px}
  .playerArchiveModal{width:min(900px,calc(100vw - 48px))}
 }
+
+/* Desktop width fix: shell's 720px width was still constraining the portal */
+@media (min-width:900px){
+ html,body{width:100%;min-width:100%}
+ body>.shell,.shell{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ #portalView{width:100vw!important;max-width:none!important;margin:0!important;left:auto!important;right:auto!important}
+ .playerPortalHero,.playerPortalCards,.playerPortalValues,#portalView .guardianManage,#portalView .development,#portalView>footer{box-sizing:border-box}
+ .playerPortalHero{width:min(1180px,calc(100% - 48px));max-width:1180px}
+ .playerPortalCards{width:min(1180px,calc(100% - 48px));max-width:1180px}
+ .playerPortalValues{width:min(1080px,calc(100% - 48px));max-width:1080px}
+ #portalView .guardianManage,#portalView .development{width:min(1136px,calc(100% - 48px));max-width:1136px}
+ #portalView>footer{width:min(1180px,calc(100% - 48px));max-width:1180px}
+}
