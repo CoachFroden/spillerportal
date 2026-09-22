@@ -72,3 +72,27 @@
 .playerArchiveOverlay{position:fixed;inset:0;z-index:1000;background:rgba(2,10,18,.88);display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow:auto}.playerArchiveModal{width:min(100%,520px);background:#0b1d2e;border:1px solid rgba(125,181,225,.28);border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.5)}.playerArchiveModal .playerArchiveConversation{margin-top:16px}.playerArchiveModal .msgTools{display:none}
 
 .playerArchiveList{display:grid;gap:10px;margin-top:18px}.playerArchiveRow{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;padding:15px 16px;border:1px solid rgba(125,181,225,.25);border-radius:16px;background:#0d2235;color:#fff;cursor:pointer}.playerArchiveRow:hover{background:#122c43}.playerArchiveRow div{display:grid;gap:5px}.playerArchiveRow strong{font-size:15px}.playerArchiveRow small,.archiveDetailDate{color:#8fa9bd;font-size:12px}.playerArchiveRow>span{font-size:28px;color:#77b7e8}.playerArchiveModal .playerArchiveConversation{margin-top:18px}
+
+/* Desktop player portal */
+@media (min-width:900px){
+ body{background:#020b14}
+ .shell{max-width:none;margin:0;padding:0}
+ #portalView{max-width:none;width:100%;margin:0;min-height:100vh;overflow:visible;background:#03101b url("./assets/bakgrunn.png") center center/cover fixed no-repeat}
+ #portalView:before{position:fixed;background:linear-gradient(90deg,rgba(1,10,18,.9) 0,rgba(1,10,18,.28) 22%,rgba(1,10,18,.18) 70%,rgba(1,10,18,.48) 100%),linear-gradient(180deg,rgba(1,10,18,.06),rgba(1,10,18,.72) 78%,#03101b)}
+ .playerPortalHero{height:245px;max-width:1180px;margin:auto;background:none}
+ .playerPortalTop{padding:26px 22px}
+ .playerPortalBrand b{font-size:15px}.playerPortalBrand span{font-size:10px}
+ .playerPortalLogout{padding:11px 17px}
+ .playerPortalCopy{left:22px;top:86px;width:520px}
+ .playerPortalCopy h1{font-size:54px}.playerPortalCopy h2{font-size:23px}
+ .playerPortalSlogan{font-size:31px;margin-top:16px}
+ .playerPortalCards{max-width:1180px;margin:0 auto;padding:0 22px 20px;border-radius:0;background:none;backdrop-filter:none;grid-template-columns:repeat(4,1fr);gap:20px}
+ .playerPortalCard{height:190px;border-radius:20px}
+ .playerPortalCard>div{left:18px;right:54px;bottom:17px}
+ .playerPortalCard strong{font-size:25px}.playerPortalCard small{font-size:13px;line-height:1.35}
+ .playerPortalIcon{left:18px;top:15px;font-size:25px}.playerPortalCard i{right:15px;bottom:15px;width:40px;height:40px}
+ .playerPortalValues{max-width:1080px;margin:0 auto;padding:20px 20px 26px;gap:38px;font-size:12px}
+ #portalView .guardianManage,#portalView .development{max-width:1136px;margin:0 auto 22px;padding:24px 28px;border-radius:24px;background:linear-gradient(145deg,rgba(16,34,56,.97),rgba(9,21,34,.97))}
+ #portalView>footer{max-width:1180px;margin:auto;padding:4px 22px 30px}
+ .playerArchiveModal{width:min(900px,calc(100vw - 48px))}
+}
