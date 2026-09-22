@@ -12,7 +12,21 @@ service cloud.firestore { match /databases/{database}/documents {
  match /developmentRequests/{id} {
   allow create: if approvedPlayer() && request.resource.data.uid == request.auth.uid && request.resource.data.playerId == playerAccount().data.playerId && request.resource.data.status == "open";
   allow read: if isCoach() || (approvedPlayer() && resource.data.uid == request.auth.uid && resource.data.playerId == playerAccount().data.playerId);
-  allow update: if isCoach(); allow delete: if false;
+  allow update: if isCoach() || (
+   approvedPlayer()
+   && resource.data.uid == request.auth.uid
+   && resource.data.playerId == playerAccount().data.playerId
+   && resource.data.status != "open"
+   && request.resource.data.uid == resource.data.uid
+   && request.resource.data.playerId == resource.data.playerId
+   && request.resource.data.startedBy == resource.data.startedBy
+   && request.resource.data.title == resource.data.title
+   && request.resource.data.message == resource.data.message
+   && request.resource.data.status == "open"
+   && request.resource.data.reopenedBy == "player"
+   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["status","reopenedAt","reopenedBy","resolvedAt"])
+  );
+  allow delete: if false;
  }
  match /developmentMessages/{id} {
   allow read: if isCoach() || (approvedPlayer() && resource.data.playerId == playerAccount().data.playerId);
