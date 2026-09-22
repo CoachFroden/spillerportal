@@ -122,3 +122,9 @@
 #developmentPanel #activeRequest .activeConversationOpenBtn{margin-top:8px;padding:8px 11px;border-radius:10px;font-size:12px;width:auto}
 #developmentPanel .thread{margin-top:12px;padding-top:10px}
 #developmentPanel .thread h3{margin:4px 0 8px}
+
+
+/* Active conversation controls: keep secondary actions quiet */
+#developmentPanel #activeRequest .activeConversationOpenBtn{padding:5px 8px!important;font-size:10px!important;line-height:1.1!important;border-radius:8px!important;min-height:0!important;width:auto!important;margin:0 0 0 6px!important;display:inline-flex!important}
+#developmentPanel .archiveBottom{margin-top:14px;padding-top:12px;border-top:1px solid rgba(126,162,194,.22)}
+#developmentPanel .archiveBottom .archivedToggle{width:100%;margin:0!important;padding:9px 12px!important;font-size:12px!important}
