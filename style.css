@@ -68,3 +68,5 @@
 #portalView .guardianManage,#portalView .development{margin:16px 12px;padding:17px;background:linear-gradient(145deg,#102238,#091522)}
 @media(min-width:560px){#portalView{max-width:430px;margin:-20px auto -40px}.playerPortalCards{grid-template-columns:1fr 1fr}}
 @media(max-width:360px){.playerPortalHero{height:350px}.playerPortalCopy h1{font-size:38px}.playerPortalCard{height:116px}.playerPortalCard small{display:none}}
+
+.playerArchiveOverlay{position:fixed;inset:0;z-index:1000;background:rgba(2,10,18,.88);display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow:auto}.playerArchiveModal{width:min(100%,520px);background:#0b1d2e;border:1px solid rgba(125,181,225,.28);border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.5)}.playerArchiveModal .playerArchiveConversation{margin-top:16px}.playerArchiveModal .msgTools{display:none}
