@@ -259,3 +259,110 @@
   border-radius:9px;
   background:#081824;
 }
+
+
+/* 2026-09-26 open future training plans */
+.laterCard{
+  width:100%;
+  font:inherit;
+  cursor:pointer;
+  transition:transform .15s ease,border-color .15s ease,background .15s ease;
+}
+.laterCard:hover{
+  transform:translateY(-1px);
+  border-color:#35739b;
+  background:linear-gradient(145deg,#0d2132,#081823);
+}
+.laterOpen{
+  display:flex!important;
+  align-items:center;
+  gap:5px;
+  color:#76b9e6!important;
+  font-size:9px!important;
+  font-weight:900;
+  white-space:nowrap;
+}
+.laterOpen b{
+  font-size:19px;
+  line-height:1;
+  font-weight:600;
+}
+.modalOpen{overflow:hidden}
+.sessionModal{
+  position:fixed;
+  inset:0;
+  z-index:1200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+.sessionModal[hidden]{display:none!important}
+.sessionModalBackdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(1,7,12,.84);
+  backdrop-filter:blur(8px);
+}
+.sessionModalCard{
+  position:relative;
+  width:min(920px,100%);
+  max-height:min(92vh,900px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid #2b526d;
+  border-radius:24px;
+  background:linear-gradient(160deg,#0b2031,#06121e);
+  box-shadow:0 32px 90px rgba(0,0,0,.65);
+}
+.sessionModalTop{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:15px 17px;
+  border-bottom:1px solid #203b52;
+  background:#081a29;
+}
+.sessionModalTop small{
+  color:var(--blue);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.sessionModalTop h2{
+  margin:3px 0 0;
+  font-size:19px;
+}
+.sessionModalTop button{
+  width:38px;
+  height:38px;
+  border:1px solid #2a4860;
+  border-radius:11px;
+  background:#ffffff08;
+  color:#dce8f1;
+  font-size:24px;
+  cursor:pointer;
+}
+.sessionModalBody{
+  overflow:auto;
+  padding:14px;
+}
+.sessionModalBody .trainingCard{
+  box-shadow:none;
+}
+.sessionModalBody .trainingCardHead{
+  background:radial-gradient(circle at 95% 0,#20e58a18,transparent 42%);
+}
+@media(max-width:620px){
+  .laterCard{grid-template-columns:54px 1fr auto;padding:9px}
+  .laterDate{width:54px;height:54px}
+  .laterOpen{font-size:0!important}
+  .laterOpen b{font-size:20px}
+  .sessionModal{padding:8px}
+  .sessionModalCard{max-height:95vh;border-radius:18px}
+  .sessionModalTop{padding:12px}
+  .sessionModalBody{padding:9px}
+}
