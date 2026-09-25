@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="spillerportal-icon.png">
-  <link rel="stylesheet" href="trening.css?v=20260925-1">
+  <link rel="stylesheet" href="trening.css?v=20260925-2">
 </head>
 <body>
   <main class="trainingShell">
@@ -34,34 +34,38 @@
       <div id="nextSession" class="nextSession"><div class="loadingCard">Henter trening …</div></div>
     </section>
 
-    <section class="wishSection">
-      <div class="wishIntro">
-        <span>💡</span>
-        <div><small>DIN STEMME</small><h2>Hva vil du trene på?</h2><p>Send et ønske til trener. Det er et forslag, ikke en bestilling – men det kan være nyttig når kommende økter planlegges.</p></div>
+    <details class="wishSection">
+      <summary class="wishSummary">
+        <span class="wishSummaryIcon">💡</span>
+        <span class="wishSummaryText"><small>DIN STEMME</small><strong>Har du et ønske til trening?</strong><em>Send et forslag til trener</em></span>
+        <span class="wishSummaryArrow">›</span>
+      </summary>
+      <div class="wishBody">
+        <p class="wishHint">Hva har du lyst til å trene mer på? Send et kort forslag. Trener ser hvem som sender det.</p>
+        <form id="wishForm" class="wishForm">
+          <label>Hva gjelder ønsket?
+            <select id="wishCategory">
+              <option>Pasning og mottak</option>
+              <option>Avslutning</option>
+              <option>1 mot 1</option>
+              <option>Forsvar</option>
+              <option>Bevegelse og samspill</option>
+              <option>Fysisk</option>
+              <option>Annet</option>
+            </select>
+          </label>
+          <label>Hva ønsker du?
+            <textarea id="wishText" maxlength="400" rows="2" placeholder="F.eks. mer avslutning etter innlegg …" required></textarea>
+          </label>
+          <div class="wishSubmitRow"><span></span><button id="wishSubmit" type="submit">Send ønske →</button></div>
+          <p id="wishMessage" class="wishMessage"></p>
+        </form>
+        <div class="myWishesBlock">
+          <div class="miniHead"><strong>Mine ønsker</strong><span id="myWishCount"></span></div>
+          <div id="myWishes" class="myWishes"><div class="smallEmpty">Ingen ønsker sendt ennå.</div></div>
+        </div>
       </div>
-      <form id="wishForm" class="wishForm">
-        <label>Hva gjelder ønsket?
-          <select id="wishCategory">
-            <option>Pasning og mottak</option>
-            <option>Avslutning</option>
-            <option>1 mot 1</option>
-            <option>Forsvar</option>
-            <option>Bevegelse og samspill</option>
-            <option>Fysisk</option>
-            <option>Annet</option>
-          </select>
-        </label>
-        <label>Fortell kort hva du ønsker
-          <textarea id="wishText" maxlength="400" rows="3" placeholder="F.eks. mer avslutning etter innlegg, 1 mot 1, dødballer …" required></textarea>
-        </label>
-        <div class="wishSubmitRow"><small>Trener ser hvem som sender ønsket.</small><button id="wishSubmit" type="submit">Send ønske →</button></div>
-        <p id="wishMessage" class="wishMessage"></p>
-      </form>
-      <div class="myWishesBlock">
-        <div class="miniHead"><strong>Mine ønsker</strong><span id="myWishCount"></span></div>
-        <div id="myWishes" class="myWishes"><div class="smallEmpty">Ingen ønsker sendt ennå.</div></div>
-      </div>
-    </section>
+    </details>
 
     <section class="laterSection">
       <div class="sectionHead"><div><small>VIDERE</small><h2>Flere treninger</h2></div></div>
@@ -71,6 +75,6 @@
     <footer>SPILLERPORTAL · SAMNANGER G14</footer>
   </main>
 
-  <script type="module" src="trening.js?v=20260925-1"></script>
+  <script type="module" src="trening.js?v=20260925-2"></script>
 </body>
 </html>
