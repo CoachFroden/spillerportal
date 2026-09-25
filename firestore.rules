@@ -34,4 +34,24 @@ service cloud.firestore { match /databases/{database}/documents {
   allow update: if false;
   allow delete: if isCoach() || (approvedPlayer() && resource.data.uid == request.auth.uid && resource.data.playerId == playerAccount().data.playerId);
  }
+
+ // ============================
+ // TRAINING – shared coach/player data
+ // ============================
+ match /trainingSessions/{sessionId} {
+  allow read: if isCoach() || (approvedPlayer() && resource.data.published == true);
+  allow create, update, delete: if isCoach();
+ }
+
+ match /trainingWishes/{wishId} {
+  allow create: if approvedPlayer()
+    && request.resource.data.uid == request.auth.uid
+    && request.resource.data.playerId == playerAccount().data.playerId
+    && request.resource.data.status == "new";
+  allow read: if isCoach()
+    || (approvedPlayer()
+      && resource.data.uid == request.auth.uid
+      && resource.data.playerId == playerAccount().data.playerId);
+  allow update, delete: if isCoach();
+ }
 }}
