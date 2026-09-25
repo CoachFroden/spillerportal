@@ -150,3 +150,98 @@
   .wishForm{grid-template-columns:1fr}
   .wishSubmitRow{grid-column:1}
 }
+
+
+/* 2026-09-25 symmetrical training wish layout */
+.wishBody{
+  padding:14px 16px 15px;
+}
+
+.wishHint{
+  margin:0 0 12px;
+  text-align:center;
+}
+
+.wishForm{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:14px;
+  row-gap:10px;
+  align-items:start;
+}
+
+.wishForm label{
+  min-width:0;
+}
+
+.wishForm select,
+.wishForm textarea{
+  height:62px;
+  min-height:62px;
+  margin-top:5px;
+  padding:10px 11px;
+}
+
+.wishForm select{
+  appearance:auto;
+}
+
+.wishForm textarea{
+  resize:none;
+}
+
+.wishSubmitRow{
+  grid-column:1/-1;
+  justify-content:center;
+  margin:0;
+}
+
+.wishSubmitRow>span{
+  display:none;
+}
+
+.wishSubmitRow button{
+  min-width:150px;
+  padding:9px 18px;
+}
+
+.wishMessage{
+  grid-column:1/-1;
+  text-align:center;
+}
+
+.myWishesBlock{
+  margin-top:12px;
+  padding-top:12px;
+}
+
+.miniHead,
+.myWishes{
+  width:100%;
+}
+
+@media(max-width:620px){
+  .wishBody{
+    padding:12px;
+  }
+  .wishHint{
+    text-align:left;
+  }
+  .wishForm{
+    grid-template-columns:1fr;
+  }
+  .wishForm select,
+  .wishForm textarea{
+    height:auto;
+    min-height:48px;
+  }
+  .wishForm textarea{
+    min-height:62px;
+  }
+  .wishSubmitRow,
+  .wishMessage{
+    grid-column:1;
+  }
+  .wishSubmitRow button{
+    width:100%;
+  }
+}
