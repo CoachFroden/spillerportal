@@ -245,3 +245,17 @@
     width:100%;
   }
 }
+
+
+/* 2026-09-25 centered tactics presentation action */
+.presentationBody{
+  text-align:center;
+}
+.presentation a{
+  margin:8px auto 0;
+  justify-content:center;
+  padding:6px 10px;
+  border:1px solid #2b5368;
+  border-radius:9px;
+  background:#081824;
+}
