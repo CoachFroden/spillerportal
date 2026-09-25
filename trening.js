@@ -68,7 +68,7 @@ function renderWishes(items){
 }
 function startWishes(){
   wishesUnsub?.();
-  const q=query(collection(db,"trainingWishes"),where("uid","==",user.uid));
+  const q=query(collection(db,"trainingWishes"),where("uid","==",user.uid),where("playerId","==",account.playerId));
   wishesUnsub=onSnapshot(q,snap=>{
     const items=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
     renderWishes(items);
