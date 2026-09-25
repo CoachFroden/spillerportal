@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Nytt passord · Samnanger G14</title>
+  <meta name="theme-color" content="#06111d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="spillerportal-icon.png">
+  <link rel="stylesheet" href="reset-passord.css?v=20260926-1">
+</head>
+<body>
+  <main class="resetShell">
+    <section class="resetCard" aria-labelledby="resetTitle">
+      <div class="resetBrand">
+        <span class="resetLogo"><img src="spillerportal-icon.png" alt=""></span>
+        <p>SAMNANGER G14</p>
+        <h1 id="resetTitle">Lag nytt passord</h1>
+        <small>Spillerportal · Foresattportal</small>
+      </div>
+
+      <div id="checkingState" class="resetState">
+        <span class="stateIcon">🔐</span>
+        <h2>Kontrollerer lenken</h2>
+        <p>Et lite øyeblikk …</p>
+      </div>
+
+      <form id="resetForm" hidden>
+        <div class="resetIntro">
+          <span>SIKKER PASSORDENDRING</span>
+          <h2>Velg et nytt passord</h2>
+          <p id="resetAccount">Kontrollerer konto …</p>
+        </div>
+
+        <label>
+          Nytt passord
+          <div class="passwordField">
+            <input id="newPassword" type="password" minlength="6" autocomplete="new-password" required>
+            <button class="showPassword" type="button" data-target="newPassword" aria-label="Vis passord">👁</button>
+          </div>
+          <small>Minst 6 tegn.</small>
+        </label>
+
+        <label>
+          Gjenta passord
+          <div class="passwordField">
+            <input id="confirmPassword" type="password" minlength="6" autocomplete="new-password" required>
+            <button class="showPassword" type="button" data-target="confirmPassword" aria-label="Vis passord">👁</button>
+          </div>
+        </label>
+
+        <button id="savePassword" class="primaryButton" type="submit">Lagre nytt passord</button>
+        <p id="resetMessage" class="resetMessage" role="status"></p>
+      </form>
+
+      <div id="successState" class="resetState successState" hidden>
+        <span class="stateIcon successIcon">✓</span>
+        <span class="successKicker">PASSORDET ER ENDRET</span>
+        <h2>Du er klar</h2>
+        <p>Det nye passordet kan nå brukes i Spillerportalen.</p>
+        <a class="primaryButton linkButton" href="./">Til innlogging</a>
+      </div>
+
+      <div id="errorState" class="resetState errorState" hidden>
+        <span class="stateIcon">⚠️</span>
+        <h2>Lenken kan ikke brukes</h2>
+        <p id="errorText">Lenken er ugyldig eller har utløpt.</p>
+        <a class="secondaryButton" href="./">Til innlogging</a>
+      </div>
+    </section>
+
+    <footer>SPILLERPORTAL · SAMNANGER G14</footer>
+  </main>
+
+  <script type="module" src="reset-passord.js?v=20260926-1"></script>
+</body>
+</html>
