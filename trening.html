@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="spillerportal-icon.png">
-  <link rel="stylesheet" href="trening.css?v=20260925-2">
+  <link rel="stylesheet" href="trening.css?v=20260926-sessions1">
 </head>
 <body>
   <main class="trainingShell">
@@ -75,6 +75,17 @@
     <footer>SPILLERPORTAL · SAMNANGER G14</footer>
   </main>
 
-  <script type="module" src="trening.js?v=20260925-tactic2"></script>
+  <div id="sessionModal" class="sessionModal" hidden>
+    <div class="sessionModalBackdrop" data-close-session></div>
+    <section class="sessionModalCard" role="dialog" aria-modal="true" aria-labelledby="sessionModalTitle">
+      <header class="sessionModalTop">
+        <div><small>KOMMENDE TRENING</small><h2 id="sessionModalTitle">Treningsplan</h2></div>
+        <button id="closeSessionModal" type="button" aria-label="Lukk">×</button>
+      </header>
+      <div id="sessionModalBody" class="sessionModalBody"></div>
+    </section>
+  </div>
+
+  <script type="module" src="trening.js?v=20260926-sessions1"></script>
 </body>
 </html>
