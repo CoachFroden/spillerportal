@@ -465,3 +465,218 @@
   .parentChildIcon{width:38px;height:38px;border-radius:11px;font-size:17px}
   .parentChildMeta strong{font-size:17px}
 }
+
+
+/* 2026-09-26 polished portal login */
+#authView{
+  width:100%;
+  min-height:100vh;
+  padding:24px 16px 40px;
+  align-content:center;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(37,99,235,.26),transparent 34%),
+    radial-gradient(circle at 82% 14%,rgba(250,204,21,.08),transparent 20%),
+    linear-gradient(180deg,#06111d 0%,#020911 100%);
+}
+.authPortalFrame{
+  width:min(100%,500px);
+  margin:auto;
+}
+.authBrand{
+  position:relative;
+  margin-bottom:18px;
+}
+.authLogo{
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:21px;
+  background:
+    linear-gradient(145deg,rgba(37,99,235,.34),rgba(8,25,44,.86));
+  border:1px solid rgba(96,165,250,.28);
+  box-shadow:
+    0 16px 42px rgba(37,99,235,.18),
+    inset 0 1px rgba(255,255,255,.06);
+}
+.authLogo img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  border-radius:15px;
+}
+.authBrand p{
+  margin:0 0 4px;
+  color:#77a1d0;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.18em;
+}
+.authBrand h1{
+  margin:0;
+  font-family:Nunito,system-ui,sans-serif;
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:-.05em;
+}
+.authBrand small{
+  display:block;
+  margin-top:4px;
+  color:#91a8c0;
+  font-size:12px;
+}
+#authView .authCard{
+  position:relative;
+  overflow:hidden;
+  padding:18px;
+  border:1px solid rgba(96,165,250,.20);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 92% 0,rgba(37,99,235,.10),transparent 30%),
+    linear-gradient(155deg,rgba(16,35,56,.98),rgba(7,18,30,.98));
+  box-shadow:
+    0 28px 75px rgba(0,0,0,.38),
+    inset 0 1px rgba(255,255,255,.035);
+}
+#authView .authChoice{
+  margin-bottom:17px;
+}
+#authView .authChoiceLabel{
+  margin:0 0 9px 2px;
+  color:#6f91b8;
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.14em;
+}
+#authView .tabs{
+  gap:6px;
+  margin:0;
+  padding:5px;
+  border:1px solid #1f3a53;
+  border-radius:15px;
+  background:#06111c;
+}
+#authView .tabs button{
+  min-height:60px;
+  padding:10px 12px;
+  border-radius:11px;
+}
+#authView .tabs button strong{
+  font-size:14px;
+}
+#authView .tabs button small{
+  margin-top:2px;
+  font-size:9px;
+}
+#authView .tabs button.active{
+  border-color:#3f78ad;
+  background:
+    linear-gradient(145deg,#19477b,#11345a);
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.authSharedLogin{
+  margin:9px 2px 0;
+  color:#70869e;
+  font-size:10px;
+  text-align:center;
+}
+#authView form{
+  gap:12px;
+}
+#authView form label{
+  gap:6px;
+  color:#a8bbcd;
+  font-size:11px;
+  font-weight:800;
+}
+#authView input{
+  min-height:47px;
+  border-color:#29445f;
+  border-radius:12px;
+  background:#06121e;
+  padding:11px 12px;
+  font-size:14px;
+}
+#authView input:focus{
+  border-color:#4d96d8;
+  box-shadow:0 0 0 3px rgba(59,130,246,.10);
+}
+#authView .primary{
+  min-height:48px;
+  margin-top:2px;
+  border:1px solid rgba(96,165,250,.24);
+  border-radius:12px;
+  background:linear-gradient(115deg,#2563eb,#0ea5e9);
+  box-shadow:0 12px 28px rgba(14,165,233,.15);
+  font-size:13px;
+}
+#authView .linkButton{
+  margin-top:-1px;
+  color:#79b8f3;
+  font-size:11px;
+}
+#authView .message{
+  min-height:14px;
+  margin:8px 2px 0;
+  text-align:center;
+  font-size:10px;
+}
+.authFoot{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:16px;
+  color:#405d79;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+@media(min-width:900px){
+  #authView{
+    width:100%!important;
+    min-height:100vh!important;
+    padding:36px 24px 50px!important;
+  }
+  #authView .authPortalFrame{
+    width:500px!important;
+    max-width:500px!important;
+    margin:auto!important;
+  }
+}
+@media(max-width:520px){
+  #authView{
+    padding:22px 12px 34px;
+  }
+  .authPortalFrame{
+    width:100%;
+  }
+  .authLogo{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+  }
+  .authLogo img{
+    width:46px;
+    height:46px;
+  }
+  .authBrand h1{
+    font-size:33px;
+  }
+  #authView .authCard{
+    padding:14px;
+    border-radius:20px;
+  }
+  #authView .tabs{
+    grid-template-columns:1fr 1fr;
+  }
+  #authView .tabs button{
+    min-height:56px;
+    padding:9px 10px;
+  }
+  .authFoot{
+    gap:10px;
+    font-size:7px;
+  }
+}
