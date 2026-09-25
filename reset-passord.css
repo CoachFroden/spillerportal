@@ -1,0 +1,97 @@
+*{box-sizing:border-box}
+:root{--bg:#04101b;--panel:#0b1c2d;--line:#24435f;--text:#f8fbff;--muted:#8fa7bf;--blue:#2563eb;--cyan:#0ea5e9;--yellow:#fde047}
+html{min-height:100%;background:var(--bg)}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Nunito,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -8%,rgba(37,99,235,.28),transparent 35%),
+    radial-gradient(circle at 84% 12%,rgba(250,204,21,.08),transparent 20%),
+    linear-gradient(180deg,#06111d 0%,#020911 100%);
+}
+button,input{font:inherit}
+[hidden]{display:none!important}
+.resetShell{
+  width:min(100%,520px);
+  margin:0 auto;
+  min-height:100vh;
+  display:grid;
+  align-content:center;
+  padding:max(24px,env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom));
+}
+.resetCard{
+  overflow:hidden;
+  border:1px solid rgba(96,165,250,.22);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 90% 0,rgba(37,99,235,.11),transparent 30%),
+    linear-gradient(155deg,rgba(16,35,56,.98),rgba(7,18,30,.98));
+  box-shadow:0 28px 80px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.04);
+  padding:22px;
+}
+.resetBrand{text-align:center;margin-bottom:18px}
+.resetLogo{
+  width:66px;height:66px;display:grid;place-items:center;margin:0 auto 12px;border-radius:20px;
+  background:linear-gradient(145deg,rgba(37,99,235,.34),rgba(8,25,44,.86));
+  border:1px solid rgba(96,165,250,.30);
+  box-shadow:0 15px 38px rgba(37,99,235,.20);
+}
+.resetLogo img{width:50px;height:50px;border-radius:14px;object-fit:contain}
+.resetBrand p{margin:0 0 4px;color:#79a4d3;font-size:10px;font-weight:900;letter-spacing:.18em}
+.resetBrand h1{margin:0;font-size:32px;line-height:1.05;letter-spacing:-.045em}
+.resetBrand small{display:block;margin-top:5px;color:#70879f;font-size:10px}
+.resetIntro{
+  padding:14px 0 16px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.resetIntro>span,.successKicker{
+  display:block;color:#fde68a;font-size:9px;font-weight:900;letter-spacing:.13em;margin-bottom:5px
+}
+.resetIntro h2,.resetState h2{margin:0 0 7px;font-size:20px}
+.resetIntro p,.resetState p{margin:0;color:#91a6bc;font-size:12px;line-height:1.5}
+#resetForm{display:grid;gap:13px}
+#resetForm label{display:grid;gap:6px;color:#aabed1;font-size:11px;font-weight:800}
+#resetForm label>small{color:#6f879e;font-size:9px;font-weight:700}
+.passwordField{position:relative}
+.passwordField input{
+  width:100%;min-height:49px;padding:11px 48px 11px 12px;
+  border:1px solid #294a67;border-radius:12px;background:#06121e;color:#fff;outline:none;
+}
+.passwordField input:focus{border-color:#4e9bdd;box-shadow:0 0 0 3px rgba(59,130,246,.11)}
+.showPassword{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:38px;height:36px;border:0;border-radius:9px;background:transparent;color:#86a3bf;cursor:pointer;font-size:15px;
+}
+.showPassword:hover{background:rgba(255,255,255,.04);color:#d9ebfa}
+.primaryButton,.secondaryButton{
+  min-height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:12px;font-weight:900;text-decoration:none;cursor:pointer;
+}
+.primaryButton{
+  border:1px solid rgba(96,165,250,.24);
+  background:linear-gradient(115deg,#2563eb,#0ea5e9);
+  color:#fff;box-shadow:0 12px 28px rgba(14,165,233,.15)
+}
+.primaryButton:disabled{opacity:.58;cursor:wait}
+.secondaryButton{border:1px solid #2d4b64;background:#0c1d2b;color:#c7d6e4}
+.resetMessage{min-height:15px;margin:0;text-align:center;color:#fca5a5;font-size:10px}
+.resetState{
+  min-height:190px;display:grid;place-items:center;align-content:center;gap:7px;text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);padding:22px 8px 8px
+}
+.stateIcon{
+  width:54px;height:54px;display:grid;place-items:center;margin-bottom:4px;border-radius:17px;
+  background:rgba(37,99,235,.12);border:1px solid rgba(96,165,250,.22);font-size:23px
+}
+.successState{padding-bottom:4px}
+.successIcon{background:rgba(34,197,94,.13);border-color:rgba(34,197,94,.25);color:#86efac;font-size:27px;font-weight:900}
+.successState .primaryButton{width:100%;margin-top:10px}
+.errorState .secondaryButton{width:100%;margin-top:10px}
+footer{text-align:center;margin-top:18px;color:#38536e;font-size:8px;font-weight:900;letter-spacing:.12em}
+@media(max-width:520px){
+  .resetShell{padding-inline:10px}
+  .resetCard{padding:17px;border-radius:21px}
+  .resetBrand h1{font-size:29px}
+}
