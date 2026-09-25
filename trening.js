@@ -8,19 +8,22 @@ const $=id=>document.getElementById(id);
 let user=null,account=null,sessions=[],wishesUnsub=null,sessionsUnsub=null;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=value=>{try{const u=new URL(value);return ["http:","https:"].includes(u.protocol)?u.href:""}catch{return""}};
+const encodeTransferPayload=value=>{const bytes=new TextEncoder().encode(JSON.stringify(value));let binary="";for(let i=0;i<bytes.length;i++)binary+=String.fromCharCode(bytes[i]);return btoa(binary).replace(/\\+/g,"-").replace(/\\//g,"_").replace(/=+$/g,"")};
+const presentationUrlFor=part=>{const presentation=part?.presentation;if(presentation?.version===1&&presentation?.sourceUrl){const source=safeUrl(presentation.sourceUrl);if(source)return source.replace(/#.*$/,"")+"#presentation="+encodeTransferPayload(presentation)}return safeUrl(part?.presentationUrl)};
 const fmt=value=>value?new Date(value+"T12:00:00").toLocaleDateString("no-NO",{weekday:"long",day:"numeric",month:"long"}):"";
 const total=s=>(s.sections||[]).reduce((sum,x)=>sum+(Number(x.minutes)||0),0);
 const dateBadge=value=>{const d=new Date(value+"T12:00:00");return{day:d.getDate(),month:d.toLocaleDateString("no-NO",{month:"short"}).replace(".","").toUpperCase()}};
 
 function partHtml(part,index){
-  const url=safeUrl(part.presentationUrl);
+  const url=presentationUrlFor(part);
+  const isTacticsPresentation=part?.presentation?.version===1;
   return `<article class="part">
     <span class="partNo">${String(index+1).padStart(2,"0")}</span>
     <div>
       <div class="partTop"><strong>${esc(part.title||"Øvelse")}</strong><span>${Number(part.minutes)||0} min</span></div>
       ${part.details?`<p>${esc(part.details)}</p>`:""}
       ${part.coaching?`<p class="coachPoints"><b>Fokus:</b> ${esc(part.coaching)}</p>`:""}
-      ${url?`<details class="presentation"><summary>▶ Se presentasjon av øvelsen</summary><div class="presentationBody"><iframe src="${esc(url)}" loading="lazy" title="Taktikktavle"></iframe><a href="${esc(url)}" target="_blank" rel="noopener">Åpne i fullskjerm ↗</a></div></details>`:""}
+      ${url?`<details class="presentation"><summary>▶ ${isTacticsPresentation?"Se taktikktavlen":"Se presentasjon av øvelsen"}</summary><div class="presentationBody"><iframe src="${esc(url)}" loading="lazy" title="Taktikktavle" allow="fullscreen"></iframe><a href="${esc(url)}" target="_blank" rel="noopener">Åpne i fullskjerm ↗</a></div></details>`:""}
     </div>
   </article>`;
 }
