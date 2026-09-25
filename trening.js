@@ -38,6 +38,20 @@ function sessionHtml(s){
     <div class="parts">${(s.sections||[]).map(partHtml).join("")||'<div class="smallEmpty">Øvelsene kommer snart.</div>'}</div>
   </article>`;
 }
+function openSessionModal(id){
+  const session=sessions.find(s=>s.id===id);
+  if(!session)return;
+  $("sessionModalTitle").textContent=session.title||"Treningsplan";
+  $("sessionModalBody").innerHTML=sessionHtml(session);
+  $("sessionModal").hidden=false;
+  document.body.classList.add("modalOpen");
+}
+function closeSessionModal(){
+  $("sessionModal").hidden=true;
+  $("sessionModalBody").innerHTML="";
+  document.body.classList.remove("modalOpen");
+}
+
 function renderSessions(){
   const today=new Date().toISOString().slice(0,10);
   const upcoming=sessions.filter(s=>(s.date||"9999")>=today).sort((a,b)=>(a.date||"").localeCompare(b.date||""));
@@ -53,8 +67,11 @@ function renderSessions(){
   const later=upcoming.slice(1);
   $("laterSessions").innerHTML=later.length?later.map(s=>{
     const d=dateBadge(s.date);
-    return `<div class="laterCard"><div class="laterDate"><b>${d.day}</b><small>${d.month}</small></div><div><strong>${esc(s.title)}</strong><span>${esc(s.focus||"Treningsøkt")} · ${total(s)} min</span></div><span>›</span></div>`;
+    return `<button type="button" class="laterCard" data-session-id="${esc(s.id)}"><div class="laterDate"><b>${d.day}</b><small>${d.month}</small></div><div><strong>${esc(s.title)}</strong><span>${esc(s.focus||"Treningsøkt")} · ${total(s)} min</span></div><span class="laterOpen">Åpne <b>›</b></span></button>`;
   }).join(""):'<div class="smallEmpty">Ingen flere publiserte økter.</div>';
+  document.querySelectorAll(".laterCard[data-session-id]").forEach(card=>{
+    card.onclick=()=>openSessionModal(card.dataset.sessionId);
+  });
 }
 function startSessions(){
   sessionsUnsub?.();
@@ -77,6 +94,10 @@ function startWishes(){
     renderWishes(items);
   },e=>{console.error(e);$("myWishes").innerHTML='<div class="smallEmpty">Kunne ikke hente ønskene dine.</div>'});
 }
+$("closeSessionModal")?.addEventListener("click",closeSessionModal);
+$("sessionModal")?.addEventListener("click",e=>{if(e.target?.matches?.("[data-close-session]"))closeSessionModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sessionModal")?.hidden)closeSessionModal()});
+
 $("wishForm").onsubmit=async e=>{
   e.preventDefault();
   if(!user||!account)return;
