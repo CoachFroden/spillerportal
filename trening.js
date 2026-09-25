@@ -8,7 +8,7 @@ const $=id=>document.getElementById(id);
 let user=null,account=null,sessions=[],wishesUnsub=null,sessionsUnsub=null;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=value=>{try{const u=new URL(value);return ["http:","https:"].includes(u.protocol)?u.href:""}catch{return""}};
-const encodeTransferPayload=value=>{const bytes=new TextEncoder().encode(JSON.stringify(value));let binary="";for(let i=0;i<bytes.length;i++)binary+=String.fromCharCode(bytes[i]);return btoa(binary).replace(/\\+/g,"-").replace(/\\//g,"_").replace(/=+$/g,"")};
+const encodeTransferPayload=value=>{const bytes=new TextEncoder().encode(JSON.stringify(value));let binary="";for(let i=0;i<bytes.length;i++)binary+=String.fromCharCode(bytes[i]);return btoa(binary).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,"")};
 const presentationUrlFor=part=>{const presentation=part?.presentation;if(presentation?.version===1&&presentation?.sourceUrl){const source=safeUrl(presentation.sourceUrl);if(source)return source.replace(/#.*$/,"")+"#presentation="+encodeTransferPayload(presentation)}return safeUrl(part?.presentationUrl)};
 const fmt=value=>value?new Date(value+"T12:00:00").toLocaleDateString("no-NO",{weekday:"long",day:"numeric",month:"long"}):"";
 const total=s=>(s.sections||[]).reduce((sum,x)=>sum+(Number(x.minutes)||0),0);
