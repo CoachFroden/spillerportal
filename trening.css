@@ -366,3 +366,50 @@
   .sessionModalTop{padding:12px}
   .sessionModalBody{padding:9px}
 }
+
+
+/* 2026-09-26 maximize embedded tactics on small screens */
+.part.hasPresentation{
+  align-items:start;
+}
+.part.hasPresentation>.presentation{
+  grid-column:1/-1;
+  width:100%;
+  margin-top:2px;
+}
+.part.hasPresentation>.presentation summary{
+  padding:9px 10px;
+}
+.part.hasPresentation>.presentationBody{
+  padding:0 6px 7px;
+}
+.part.hasPresentation>.presentation iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+}
+@media(max-width:620px){
+  .part.hasPresentation{
+    grid-template-columns:34px minmax(0,1fr);
+    gap:8px;
+    padding:10px 8px 11px;
+  }
+  .part.hasPresentation>.presentation{
+    margin-top:4px;
+  }
+  .part.hasPresentation>.presentation summary{
+    padding:8px 7px;
+    font-size:9px;
+  }
+  .part.hasPresentation>.presentationBody{
+    padding:0 2px 5px;
+  }
+  .part.hasPresentation>.presentation iframe{
+    aspect-ratio:16/10;
+    border-radius:8px;
+  }
+  .part.hasPresentation>.presentation a{
+    margin-top:6px;
+    padding:7px 10px;
+  }
+}
