@@ -689,3 +689,14 @@
  .playerPortalHero,.playerPortalCards,.playerPortalValues,#portalView .guardianManage,#portalView .development,#portalView>footer{max-width:100%;box-sizing:border-box}
  .playerPortalCopy{max-width:calc(100% - 36px)}
 }
+
+/* iOS Safari: prevent restored page zoom / oversized portal rendering */
+@media (max-width:899px){
+ body>.shell{padding-left:16px!important;padding-right:16px!important}
+ #portalView{position:relative!important;left:0!important;right:0!important;width:calc(100% + 32px)!important;max-width:calc(100% + 32px)!important;margin-left:-16px!important;margin-right:-16px!important}
+ .playerPortalHero{width:100%!important}
+ .playerPortalCards{width:auto!important;margin-left:10px!important;margin-right:10px!important;padding-left:10px!important;padding-right:10px!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+ .playerPortalCard{min-width:0!important;width:100%!important}
+ .playerPortalCard>div{min-width:0!important}
+ .playerPortalCard strong{max-width:100%!important}
+}
