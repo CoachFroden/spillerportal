@@ -680,3 +680,12 @@
     font-size:7px;
   }
 }
+
+/* iPhone/mobile viewport fix */
+@media (max-width:899px){
+ html,body{width:100%;max-width:100%;overflow-x:hidden}
+ .shell{width:100%;max-width:100%;margin:0;padding:max(20px,env(safe-area-inset-top)) 16px 40px;overflow-x:hidden}
+ #portalView{width:auto;max-width:none;margin:-20px -16px -40px;overflow:hidden}
+ .playerPortalHero,.playerPortalCards,.playerPortalValues,#portalView .guardianManage,#portalView .development,#portalView>footer{max-width:100%;box-sizing:border-box}
+ .playerPortalCopy{max-width:calc(100% - 36px)}
+}
