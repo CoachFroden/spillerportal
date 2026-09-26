@@ -17,14 +17,14 @@ const dateBadge=value=>{const d=new Date(value+"T12:00:00");return{day:d.getDate
 function partHtml(part,index){
   const url=presentationUrlFor(part);
   const isTacticsPresentation=part?.presentation?.version===1;
-  return `<article class="part">
+  return `<article class="part ${url?"hasPresentation":""}">
     <span class="partNo">${String(index+1).padStart(2,"0")}</span>
-    <div>
+    <div class="partCopy">
       <div class="partTop"><strong>${esc(part.title||"Øvelse")}</strong><span>${Number(part.minutes)||0} min</span></div>
       ${part.details?`<p>${esc(part.details)}</p>`:""}
       ${part.coaching?`<p class="coachPoints"><b>Fokus:</b> ${esc(part.coaching)}</p>`:""}
-      ${url?`<details class="presentation"><summary>▶ ${isTacticsPresentation?"Se taktikktavlen":"Se presentasjon av øvelsen"}</summary><div class="presentationBody"><iframe src="${esc(url)}" loading="lazy" title="Taktikktavle" allow="fullscreen"></iframe><a href="${esc(url)}">Åpne i fullskjerm ↗</a></div></details>`:""}
     </div>
+    ${url?`<details class="presentation"><summary>▶ ${isTacticsPresentation?"Se taktikktavlen":"Se presentasjon av øvelsen"}</summary><div class="presentationBody"><iframe src="${esc(url)}" loading="lazy" title="Taktikktavle" allow="fullscreen"></iframe><a href="${esc(url)}">Åpne i fullskjerm ↗</a></div></details>`:""}
   </article>`;
 }
 function sessionHtml(s){
