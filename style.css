@@ -700,3 +700,12 @@
  .playerPortalCard>div{min-width:0!important}
  .playerPortalCard strong{max-width:100%!important}
 }
+
+/* iPhone Safari initial-scale hardening */
+@media (max-width:899px){
+ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+ body{min-width:0!important}
+ .shell{min-width:0!important}
+ #portalView{min-width:0!important}
+ .playerPortalTop,.playerPortalCopy,.playerPortalCards{min-width:0!important}
+}
